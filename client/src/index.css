@@ -1,0 +1,88 @@
+body, html {
+  margin: 0;
+  color: #e6ddf9;
+}
+
+/* Applying a gradient background using pure CSS */
+body {
+  background: linear-gradient(to right, #9d50bb, #6e48aa, #f7797d); /* Similar to Tailwind's bg-gradient-to-r from-purple-400 via-indigo-200 to-pink-400 */
+}
+
+#root {
+  align-items: start;
+  height: 100vh;
+  z-index: 1; /* Ensure content stays above bubbles */
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  z-index: -1;
+  list-style: none;
+}
+
+.bubbles li {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter, semi-transparent white for a softer look */
+  border-radius: 50%; /* Ensures the bubbles are circular */
+  bottom: -150px;
+  animation: rise 20s infinite ease-in-out; /* Slowing down the animation for a more relaxed effect */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* A soft glow for the bubbles */
+}
+
+/* Larger bubbles and slower animations for a more calming effect */
+.bubbles li:nth-child(1) {
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  animation-duration: 22s;
+}
+
+.bubbles li:nth-child(2) {
+  left: 25%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 18s;
+}
+
+.bubbles li:nth-child(3) {
+  left: 40%;
+  width: 100px;
+  height: 100px;
+  animation-duration: 25s;
+}
+
+.bubbles li:nth-child(4) {
+  left: 55%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 15s;
+}
+
+.bubbles li:nth-child(5) {
+  left: 70%;
+  width: 120px;
+  height: 120px;
+  animation-duration: 30s;
+}
+
+/* Keyframes for bubble animation */
+@keyframes rise {
+  0% {
+    bottom: -150px;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    bottom: 100vh;
+    transform: translateX(100px) rotate(360deg); /* More rotation for a mesmerizing effect */
+  }
+}
